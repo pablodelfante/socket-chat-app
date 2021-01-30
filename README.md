@@ -1,12 +1,15 @@
 # Hola mundo readme
 
-_descripcoon_
+_Repositorio de demostracion para mostrar socket io como una tecnologia mas incorporada_
 
-## subtitulo
+## Como iniciar
+_para iniciar el servidor local como desarrollo:<br>_
+`npm run dev`
 
-[link]('www.google.com')
 
-* Lista
-* item
+## Tecnologias usadas
+* Socket.io
+* Tailwind CSS
 
+[link google]('www.google.com')
 <hr>

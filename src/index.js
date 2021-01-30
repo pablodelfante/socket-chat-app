@@ -28,9 +28,12 @@ const messages = [];
 io.on('connection', (socket) => {
     // una vez conectado el socket...
     console.log('alguien se ha conectado');
+
     socket.on('newMessage', msg => {
-        console.log('mandaron', msg);
         messages.push(msg);
+        
+        // envio ultimo mensaje a todos!
+        io.emit('message', msg);
     });
 });
 

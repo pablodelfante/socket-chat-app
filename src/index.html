@@ -9,31 +9,68 @@
     <!-- tailwind cdn -->
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 
-   
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 
-<body class="h-screen bg-gray-100">
-    <div class="container">
-        <form id="form">
-            <input type="text" id="message" placeholder="escribe tu mensaje">
-            <button>ENVIAR</button>
+<body class="min-h-screen bg-gray-100">
+
+    <!-- contenedor general -->
+    <div class="container mx-auto pb-10 py-10 ">
+
+        <!-- contenedor de mensajes -->
+        <ul id="container-msg">
+            <li class="text-black">Aqui saldran tus mensajes</li>
+        </ul>
+
+        <!-- formulario mensaje -->
+        <form id="form" class="my-5">
+            <input type="text" id="message" placeholder="escribe tu mensaje"
+            class="border border-green-500 rounded-md px-3 py-2
+            focus:outline-none focus:shadow-outline">
+
+            <button class="border border-green-500 text-green-500 rounded-md px-8 py-2
+            transition duration-300 ease select-none hover:text-white
+            hover:bg-green-600 focus:outline-none focus:shadow-outline">
+                ENVIAR
+            </button>
         </form>
     </div>
 
-     <!-- SCRIPT BASICO PARA CONECTAR SOCKET -->
-     <script src="/socket.io/socket.io.js"></script>
-     <script>
-         var socket = io();
- 
-         const message = document.getElementById('message');
-         const form = document.getElementById('form');
+    <!-- SCRIPT BASICO PARA CONECTAR SOCKET -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
 
-         form.addEventListener('submit', function(e) {
-             e.preventDefault();
-             socket.emit('newMessage',message.value)
-         });
- 
-     </script>
+        //  VARIABLES
+        const message = document.getElementById('message');
+        const form = document.getElementById('form');
+        const containerMsg = document.getElementById('container-msg');
+
+        // my render
+        function render(msg) {
+            const render =
+                `<li>${msg}</li>`;
+
+            containerMsg.innerHTML += render;
+            // muevo scrooll
+            window.scrollTo(0, document.body.scrollHeight);
+        }
+
+        //  ENVIO MENSAJE
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            socket.emit('newMessage', message.value);
+            // vacio campo
+            message.value = '';
+
+        });
+
+        //  ESCUCHO MENSAJES
+        socket.on('message', (msg) => {
+            render(msg);
+        });
+
+    </script>
 </body>
 
 </html>
