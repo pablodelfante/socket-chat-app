@@ -21,10 +21,17 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
 
+
+// MENSAJES
+const messages = [];
 // MI EJEMPLO IO
 io.on('connection', (socket) => {
     // una vez conectado el socket...
     console.log('alguien se ha conectado');
+    socket.on('newMessage', msg => {
+        console.log('mandaron', msg);
+        messages.push(msg);
+    });
 });
 
 // ESCUCHA DE PUERTO

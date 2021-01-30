@@ -6,15 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejemplo de chat</title>
 
-    <!-- SCRIPT BASICO PARA CONECTAR SOCKET -->
-    <script src="/socket.io/socket.io.js"></script>
-    <script>
-        var socket = io();
-    </script>
+    <!-- tailwind cdn -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+   
 </head>
 
-<body>
-    <h3>hola mundo</h3>
+<body class="h-screen bg-gray-100">
+    <div class="container">
+        <form id="form">
+            <input type="text" id="message" placeholder="escribe tu mensaje">
+            <button>ENVIAR</button>
+        </form>
+    </div>
+
+     <!-- SCRIPT BASICO PARA CONECTAR SOCKET -->
+     <script src="/socket.io/socket.io.js"></script>
+     <script>
+         var socket = io();
+ 
+         const message = document.getElementById('message');
+         const form = document.getElementById('form');
+
+         form.addEventListener('submit', function(e) {
+             e.preventDefault();
+             socket.emit('newMessage',message.value)
+         });
+ 
+     </script>
 </body>
 
 </html>
