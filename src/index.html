@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/static/style.css">
 </head>
 
-<body class="min-h-screen bg-gray-100">
+<body class="chat min-h-screen bg-gray-100">
 
     <!-- contenedor general -->
     <div class="container mx-auto pb-10 py-10 ">
@@ -24,8 +24,7 @@
 
         <!-- formulario mensaje -->
         <form id="form" class="my-5">
-            <input type="text" id="message" placeholder="escribe tu mensaje"
-            class="border border-green-500 rounded-md px-3 py-2
+            <input type="text" id="message" placeholder="escribe tu mensaje" class="border border-green-500 rounded-md px-3 py-2
             focus:outline-none focus:shadow-outline">
 
             <button class="border border-green-500 text-green-500 rounded-md px-8 py-2
@@ -38,6 +37,10 @@
 
     <!-- SCRIPT BASICO PARA CONECTAR SOCKET -->
     <script src="/socket.io/socket.io.js"></script>
+    <!-- SCRIPT PARA COOCKIES -->
+    <!-- https://github.com/florian/cookie.js -->
+    <script src="static/cookie.umd.min.js"></script>
+
     <script>
         var socket = io();
 
@@ -59,7 +62,7 @@
         //  ENVIO MENSAJE
         form.addEventListener('submit', function (e) {
             e.preventDefault();
-            socket.emit('newMessage', message.value);
+            socket.emit('newMessage', `<strong>${cookie.get('prueba')}:</strong> ${message.value}`);
             // vacio campo
             message.value = '';
 
