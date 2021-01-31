@@ -1,4 +1,4 @@
-# Hola mundo readme
+# Introducción
 
 _Repositorio de demostración para mostrar socket io como una tecnologia más incorporada, sesion básica a través de cookies, y demas_
 
