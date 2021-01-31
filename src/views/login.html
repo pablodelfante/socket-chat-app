@@ -15,10 +15,13 @@
 
     <!-- contenedor general -->
     <div class="container mx-auto pb-10 py-10 ">
+
+        <code>Ingresa un alias para comenzar a chatear</code>
+
         <!-- FORMULARIO LOGIN -->
         <form id="form-login" class="my-5" method="GET">
-            <input type="text" id="input-login" placeholder="escribe un alias para el chat" class="border border-green-500 rounded-md px-3 py-2
-        focus:outline-none focus:shadow-outline">
+            <input type="text" id="input-login" placeholder="dime un alias para el chat" class="border border-green-500 rounded-md px-3 py-2
+        focus:outline-none focus:shadow-outline" required>
 
             <button class="border border-green-500 text-green-500 rounded-md px-8 py-2
         transition duration-300 ease select-none hover:text-white
@@ -28,7 +31,7 @@
         </form>
 
         <!-- aviso de coockies -->
-        <em>Estare almacenando coockies para saber quien eres! =D</em>
+        <em>Almaceno coockies para saber quien eres! =D</em>
     </div>
 
 
@@ -43,7 +46,6 @@
             window.location = `/chat${inputLogin.value}`;
         }
     </script>
-    <a href="/chat">CHAT DIRECTO</a>
 </body>
 
 </html>

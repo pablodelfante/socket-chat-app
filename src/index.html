@@ -19,7 +19,7 @@
 
         <!-- contenedor de mensajes -->
         <ul id="container-msg">
-            <li class="text-black">Aqui saldran tus mensajes</li>
+            <li class="text-black"><code>Aqui saldran tus mensajes</code></li>
         </ul>
 
         <!-- formulario mensaje -->
@@ -62,7 +62,7 @@
         //  ENVIO MENSAJE
         form.addEventListener('submit', function (e) {
             e.preventDefault();
-            socket.emit('newMessage', `<strong>${cookie.get('prueba')}:</strong> ${message.value}`);
+            socket.emit('newMessage', `<strong>${cookie.get('alias')}:</strong> ${message.value}`);
             // vacio campo
             message.value = '';
 

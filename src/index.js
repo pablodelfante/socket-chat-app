@@ -19,8 +19,6 @@ const port = process.env.PORT || 8080;
 app.use('/static', express.static(__dirname + '/public'));
 
 // sesion
-app.set('title', 'My Site')
-app.get('title') // "My Site"
 app.use(cookieParser())
 
 
@@ -31,24 +29,24 @@ app.get('/', (req, res) => {
 });
 // chat
 app.get('/chat:param', (req, res) => {
-    console.log(req.params.param);
     res.sendFile(__dirname + '/index.html');
 
     // seteo la cookie desde el backend
-    res.cookie('prueba',req.params.param);
+    res.cookie('alias', req.params.param); 
+    
+    
 });//fin de /chat
 
 
 // MENSAJES
-const messages = [];
+const messages = [];//posible almacenamiento
 // MI EJEMPLO IO
 io.on('connection', (socket) => {
     // una vez conectado el socket...
     console.log('alguien se ha conectado');
 
-
+    // espero nuevos mensajes
     socket.on('newMessage', msg => {
-        console.log(msg)
         // envio ultimo mensaje a todos!
         io.emit('message', msg);
     });

@@ -1,6 +1,6 @@
 # Hola mundo readme
 
-_Repositorio de demostracion para mostrar socket io como una tecnologia mas incorporada_
+_Repositorio de demostración para mostrar socket io como una tecnologia más incorporada, sesion básica a través de cookies, y demas_
 
 ## Como iniciar
 _para iniciar el servidor local como desarrollo:<br>_
@@ -10,6 +10,9 @@ _para iniciar el servidor local como desarrollo:<br>_
 ## Tecnologias usadas
 * Socket.io
 * Tailwind CSS
+* Express
+* Cookies
+* ...
 
 [link google]('www.google.com')
 <hr>
