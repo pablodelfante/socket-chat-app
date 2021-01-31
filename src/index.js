@@ -14,10 +14,10 @@ const cookieParser = require('cookie-parser')
 // defino puerto
 const port = process.env.PORT || 8080;
 
+
 // MIDELWARES
 // static es mi via de montaje para archivos estaticos
 app.use('/static', express.static(__dirname + '/public'));
-
 // sesion
 app.use(cookieParser())
 
@@ -33,8 +33,6 @@ app.get('/chat:param', (req, res) => {
 
     // seteo la cookie desde el backend
     res.cookie('alias', req.params.param); 
-    
-    
 });//fin de /chat
 
 
