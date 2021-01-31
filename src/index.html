@@ -15,7 +15,7 @@
 <body class="chat min-h-screen bg-gray-100">
 
     <!-- contenedor general -->
-    <div class="container mx-auto pb-10 py-10 ">
+    <div class="container mx-auto max-w-2xl pb-10 py-10 ">
 
         <!-- contenedor de mensajes -->
         <ul id="container-msg">
@@ -23,7 +23,7 @@
         </ul>
 
         <!-- formulario mensaje -->
-        <form id="form" class="my-5">
+        <form id="form" class="my-5 flex gap-1.5 flex-wrap">
             <input type="text" id="message" placeholder="escribe tu mensaje" class="border border-green-500 rounded-md px-3 py-2
             focus:outline-none focus:shadow-outline">
 
@@ -33,6 +33,9 @@
                 ENVIAR
             </button>
         </form>
+        <a href="/" class="text-md text-purple-500 underline
+        absolute left-5 bottom-5">
+            <em>volver a alias</em></a>
     </div>
 
     <!-- SCRIPT BASICO PARA CONECTAR SOCKET -->
