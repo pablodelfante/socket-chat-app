@@ -14,5 +14,4 @@ _para iniciar el servidor local como desarrollo:<br>_
 * Cookies
 * ...
 
-[app in heroku]('https://first-socket-chat-app.herokuapp.com/')
 <hr>
